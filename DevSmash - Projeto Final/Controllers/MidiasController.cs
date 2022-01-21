@@ -12,7 +12,7 @@ using DevSmash___Projeto_Final.Models;
 namespace DevSmash___Projeto_Final.Controllers
 {
     public class MidiasController : Controller
-    {
+    {*
         private readonly SiteContext _context;
 
         public MidiasController(SiteContext context)
