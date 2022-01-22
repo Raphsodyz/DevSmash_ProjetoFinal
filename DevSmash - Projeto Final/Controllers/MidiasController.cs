@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
-using DevSmash___Projeto_Final.Models;
+using DevSmash___Projeto_Final.Models.Entidades;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
     public class MidiasController : Controller
-    {*
+    {
         private readonly SiteContext _context;
 
         public MidiasController(SiteContext context)
@@ -23,7 +23,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // GET: Midias
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Midia.ToListAsync());
+            return View(await _context.Midias.ToListAsync());
         }
 
         // GET: Midias/Details/5
@@ -34,7 +34,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var midia = await _context.Midia
+            var midia = await _context.Midias
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (midia == null)
             {
@@ -74,7 +74,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var midia = await _context.Midia.FindAsync(id);
+            var midia = await _context.Midias.FindAsync(id);
             if (midia == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var midia = await _context.Midia
+            var midia = await _context.Midias
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (midia == null)
             {
@@ -140,15 +140,15 @@ namespace DevSmash___Projeto_Final.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var midia = await _context.Midia.FindAsync(id);
-            _context.Midia.Remove(midia);
+            var midia = await _context.Midias.FindAsync(id);
+            _context.Midias.Remove(midia);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MidiaExists(int id)
         {
-            return _context.Midia.Any(e => e.Id == id);
+            return _context.Midias.Any(e => e.Id == id);
         }
     }
 }

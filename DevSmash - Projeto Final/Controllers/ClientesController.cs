@@ -11,22 +11,22 @@ using DevSmash___Projeto_Final.Models.Entidades;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
-    public class ServicosController : Controller
+    public class ClientesController : Controller
     {
         private readonly SiteContext _context;
 
-        public ServicosController(SiteContext context)
+        public ClientesController(SiteContext context)
         {
             _context = context;
         }
 
-        // GET: Servicoes
+        // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Servicos.ToListAsync());
+            return View(await _context.Clientes.ToListAsync());
         }
 
-        // GET: Servicoes/Details/5
+        // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +34,39 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var servico = await _context.Servicos
+            var cliente = await _context.Clientes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (servico == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(servico);
+            return View(cliente);
         }
 
-        // GET: Servicoes/Create
+        // GET: Clientes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Servicoes/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descricao,NomeServico,Valor")] Servico servico)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Email,Telefone,Cpf")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(servico);
+                _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(servico);
+            return View(cliente);
         }
 
-        // GET: Servicoes/Edit/5
+        // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +74,22 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var servico = await _context.Servicos.FindAsync(id);
-            if (servico == null)
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente == null)
             {
                 return NotFound();
             }
-            return View(servico);
+            return View(cliente);
         }
 
-        // POST: Servicoes/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,NomeServico,Valor")] Servico servico)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Email,Telefone,Cpf")] Cliente cliente)
         {
-            if (id != servico.Id)
+            if (id != cliente.Id)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace DevSmash___Projeto_Final.Controllers
             {
                 try
                 {
-                    _context.Update(servico);
+                    _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ServicoExists(servico.Id))
+                    if (!ClienteExists(cliente.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +114,10 @@ namespace DevSmash___Projeto_Final.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(servico);
+            return View(cliente);
         }
 
-        // GET: Servicoes/Delete/5
+        // GET: Clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +125,30 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var servico = await _context.Servicos
+            var cliente = await _context.Clientes
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (servico == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return View(servico);
+            return View(cliente);
         }
 
-        // POST: Servicoes/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var servico = await _context.Servicos.FindAsync(id);
-            _context.Servicos.Remove(servico);
+            var cliente = await _context.Clientes.FindAsync(id);
+            _context.Clientes.Remove(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ServicoExists(int id)
+        private bool ClienteExists(int id)
         {
-            return _context.Servicos.Any(e => e.Id == id);
+            return _context.Clientes.Any(e => e.Id == id);
         }
     }
 }

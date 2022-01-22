@@ -1,4 +1,4 @@
-﻿@model DevSmash___Projeto_Final.Models.Post
+﻿@model DevSmash___Projeto_Final.Models.Entidades.Post
 
 @{
     ViewData["Title"] = "Details";
@@ -33,12 +33,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Criacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Alteracao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Alteracao)
         </dd>
     </dl>
 </div>

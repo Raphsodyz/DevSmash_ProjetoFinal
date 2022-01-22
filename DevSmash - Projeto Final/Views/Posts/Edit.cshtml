@@ -1,4 +1,4 @@
-﻿@model DevSmash___Projeto_Final.Models.Post
+﻿@model DevSmash___Projeto_Final.Models.Entidades.Post
 
 @{
     ViewData["Title"] = "Edit";
@@ -32,11 +32,6 @@
                 <label asp-for="Criacao" class="control-label"></label>
                 <input asp-for="Criacao" class="form-control" />
                 <span asp-validation-for="Criacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alteracao" class="control-label"></label>
-                <input asp-for="Alteracao" class="form-control" />
-                <span asp-validation-for="Alteracao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

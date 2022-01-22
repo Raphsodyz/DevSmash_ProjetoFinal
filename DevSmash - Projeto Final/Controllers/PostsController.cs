@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
-using DevSmash___Projeto_Final.Models;
+using DevSmash___Projeto_Final.Models.Entidades;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
@@ -23,7 +23,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // GET: Posts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Post.ToListAsync());
+            return View(await _context.Posts.ToListAsync());
         }
 
         // GET: Posts/Details/5
@@ -34,7 +34,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var post = await _context.Post
+            var post = await _context.Posts
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (post == null)
             {
@@ -55,7 +55,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Autor,Conteudo,Titulo,Criacao,Alteracao")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,Autor,Conteudo,Titulo,Criacao")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var post = await _context.Post.FindAsync(id);
+            var post = await _context.Posts.FindAsync(id);
             if (post == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Autor,Conteudo,Titulo,Criacao,Alteracao")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Autor,Conteudo,Titulo,Criacao")] Post post)
         {
             if (id != post.Id)
             {
@@ -125,7 +125,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var post = await _context.Post
+            var post = await _context.Posts
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (post == null)
             {
@@ -140,15 +140,15 @@ namespace DevSmash___Projeto_Final.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var post = await _context.Post.FindAsync(id);
-            _context.Post.Remove(post);
+            var post = await _context.Posts.FindAsync(id);
+            _context.Posts.Remove(post);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PostExists(int id)
         {
-            return _context.Post.Any(e => e.Id == id);
+            return _context.Posts.Any(e => e.Id == id);
         }
     }
 }

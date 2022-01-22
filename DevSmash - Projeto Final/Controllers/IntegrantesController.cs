@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
-using DevSmash___Projeto_Final.Models;
+using DevSmash___Projeto_Final.Models.Entidades;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
@@ -23,7 +23,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // GET: Integrantes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Integrante.ToListAsync());
+            return View(await _context.Integrantes.ToListAsync());
         }
 
         // GET: Integrantes/Details/5
@@ -34,7 +34,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var integrante = await _context.Integrante
+            var integrante = await _context.Integrantes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (integrante == null)
             {
@@ -74,7 +74,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var integrante = await _context.Integrante.FindAsync(id);
+            var integrante = await _context.Integrantes.FindAsync(id);
             if (integrante == null)
             {
                 return NotFound();
@@ -125,7 +125,7 @@ namespace DevSmash___Projeto_Final.Controllers
                 return NotFound();
             }
 
-            var integrante = await _context.Integrante
+            var integrante = await _context.Integrantes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (integrante == null)
             {
@@ -140,15 +140,15 @@ namespace DevSmash___Projeto_Final.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var integrante = await _context.Integrante.FindAsync(id);
-            _context.Integrante.Remove(integrante);
+            var integrante = await _context.Integrantes.FindAsync(id);
+            _context.Integrantes.Remove(integrante);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool IntegranteExists(int id)
         {
-            return _context.Integrante.Any(e => e.Id == id);
+            return _context.Integrantes.Any(e => e.Id == id);
         }
     }
 }

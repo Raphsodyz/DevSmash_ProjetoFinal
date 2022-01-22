@@ -1,7 +1,11 @@
+using DevSmash___Projeto_Final;
+using DevSmash___Projeto_Final.Models.Entidades;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<SiteContext>();
 
 var app = builder.Build();
 
