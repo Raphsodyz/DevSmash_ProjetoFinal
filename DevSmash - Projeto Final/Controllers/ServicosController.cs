@@ -20,13 +20,13 @@ namespace DevSmash___Projeto_Final.Controllers
             _context = context;
         }
 
-        // GET: Servicoes
+        // GET: Servicos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Servicos.ToListAsync());
         }
 
-        // GET: Servicoes/Details/5
+        // GET: Servicos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

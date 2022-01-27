@@ -13,7 +13,7 @@ canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
     margin: 0;
-    padding: 0;
+    padding: 0;b
     border: 0;
     font-size: 100%;
     font: inherit;
@@ -2117,7 +2117,7 @@ label {
     .icon.major {
         text-align: center;
         cursor: default;
-        background-color: #37c0fb;
+        background-color: #046619;
         background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
         background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
         background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
@@ -2621,24 +2621,24 @@ button,
     }
 
 #banner {
-    background-image: url("https://computerworld.com.br/wp-content/uploads/2021/09/shutterstock_1488125123.jpg");
+    background-image: url("https://i.imgur.com/P7EXsRX.png");
     background-position: center center;
-    background-size: cover;
+    background-size:cover;
     height: 28em;
     text-align: center;
     position: relative;
 }
 
-    #banner header {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #212121;
-        background: rgba(27, 27, 27, 0.75);
-        color: #fff;
-        padding: 1.5em 0;
-    }
+#banner header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #212121;
+    background: rgba(27, 27, 27, 0.75);
+    color: #fff;
+    padding: 1.5em 0;
+}
 
         #banner header h2 {
             display: inline-block;
