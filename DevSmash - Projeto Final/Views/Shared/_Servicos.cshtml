@@ -1,0 +1,11 @@
+﻿@model DevSmash___Projeto_Final.Models.Entidades.Servico
+
+<section class="col-4 col-12-narrower">
+    <div class="box highlight">
+        <a asp-controller="Servicos" asp-action="Index">
+            <i class="@Model.Icone"></i>
+            <h3>@Model.NomeServico</h3>
+        </a>
+        <p>@Model.DescricaoFront</p>
+    </div>
+</section>

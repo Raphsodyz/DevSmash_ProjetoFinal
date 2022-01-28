@@ -10,5 +10,8 @@ namespace DevSmash___Projeto_Final.Models.Entidades
         public string? Autor { get; set; }
         public string Conteudo { get; set; } = null!;
         public DateTime Criacao { get; set; }
+        public string? Imagem { get; set; }
+        public string? DescricaoFront { get; set; }
+
     }
 }
