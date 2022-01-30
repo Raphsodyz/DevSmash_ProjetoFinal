@@ -8,22 +8,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
 using DevSmash___Projeto_Final.Models.Entidades;
+using AutoMapper;
+using DevSmash___Projeto_Final.Models.ViewModels;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
     public class ServicosController : Controller
     {
         private readonly SiteContext _context;
+        private readonly IMapper _mapper;
 
-        public ServicosController(SiteContext context)
+        public ServicosController(SiteContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Servicos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Servicos.ToListAsync());
+            var servicos = _context.Servicos.ToList();
+            List<ServicoViewModel> servicoViewModels = _mapper.Map<List<ServicoViewModel>>(servicos);
+
+            return View(servicoViewModels);
         }
 
         // GET: Servicos/Details/5

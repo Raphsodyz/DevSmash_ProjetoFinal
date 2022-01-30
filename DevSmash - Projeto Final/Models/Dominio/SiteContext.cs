@@ -159,13 +159,14 @@ namespace DevSmash___Projeto_Final
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Descricao).HasColumnName("descricao");
-
-                entity.Property(e => e.NomeServico)
+                entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .HasColumnName("nomeServico");
 
+                entity.Property(e => e.Descricao).HasColumnName("descricao");
+
                 entity.Property(e => e.Valor).HasColumnName("valor");
+
             });
 
             OnModelCreatingPartial(modelBuilder);

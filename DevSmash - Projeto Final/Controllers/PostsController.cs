@@ -15,6 +15,7 @@ namespace DevSmash___Projeto_Final.Controllers
     {
         private readonly SiteContext _context;
 
+
         public PostsController(SiteContext context)
         {
             _context = context;
