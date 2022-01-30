@@ -16,6 +16,9 @@ namespace DevSmash___Projeto_Final.Aplicação
                     view => view.NomeServico,
                     serv => serv.MapFrom(src => src.Nome))
                 .ForMember(
+                    view => view.ValorServico,
+                    serv => serv.MapFrom(src => src.Valor))
+                .ForMember(
                     view => view.IconeFront,
                     serv => serv.MapFrom(src => src.Icone))
                 .ForMember(
@@ -23,7 +26,10 @@ namespace DevSmash___Projeto_Final.Aplicação
                     serv => serv.MapFrom(src => src.DescricaoFront))
                 .ForMember(
                     view => view.ImagemFront,
-                    serv => serv.MapFrom(src => src.Imagem));
+                    serv => serv.MapFrom(src => src.Imagem))
+                .ForMember(
+                    view => view.DescricaoCompleta,
+                    serv => serv.MapFrom(src => src.Descricao));
         }
     }
 }
