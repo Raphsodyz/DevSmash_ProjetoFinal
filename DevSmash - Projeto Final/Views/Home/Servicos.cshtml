@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Servico>
+
+
+<section class="wrapper style1">
+    <div class="container">
+        <div class="row gtr-200">
+            <div class="col-8 col-12-narrower">
+                <div id="content">
+                    <article>
+                        <header>
+                            <h2>Conheça nossos Serviços</h2>
+                            <p>Nossa equipe é totalmente qualificada e está pronta para te oferecer o melhor</p>
+                        </header>
+                        <br />
+                        @foreach (var servico in Model)
+                        {
+                            <header>
+                                <h2>@servico.Nome</h2>
+                            </header>
+                            <span class="image featured"><img src="@servico.Imagem" alt="" /></span>
+                            <p>@servico.Descricao</p>
+                        }
+                    </article>
+                </div>
+            </div>
+            <div class="col-4 col-12-narrower">
+                <div id="sidebar">
+                    <section>
+                        <h3>Precisa de alguma de nossas soluções? Nos envie uma mensagem!</h3>
+                        <footer>
+                            <form method="post" action="https://localhost:7150/Clientes/Create">
+                                <div class="row gtr-50">
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="text" name="Nome" id="Nome" placeholder="Seu nome" />
+                                    </div>
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="email" name="Email" id="Email" placeholder="Seu e-mail!" />
+                                    </div>
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="tel" name="Telefone" id="Telefone" placeholder="Telefone" />
+                                    </div>
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="number" name="Cpf" id="Cpf" placeholder="Seu CPF/CNPJ de sua empresa" />
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="Mensagem" id="Mensagem" placeholder="Conte-nos sobre você e o que precisa!" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="actions">
+                                            <li><input type="submit" class="button alt" value="Enviar Mensagem" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>      

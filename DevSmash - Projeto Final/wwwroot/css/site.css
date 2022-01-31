@@ -1976,6 +1976,8 @@ footer {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="tel"],
+input[type="number"],
 textarea {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -1994,6 +1996,12 @@ textarea {
     padding: 0.75em;
     text-decoration: none;
     width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
     input[type="text"]:focus,

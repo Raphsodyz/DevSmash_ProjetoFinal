@@ -56,7 +56,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Autor,Conteudo,Titulo,Criacao")] Post post)
+        public async Task<IActionResult> Create([Bind("Id,Autor,Conteudo,Titulo,Criacao,Imagem,DescricaoFront")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace DevSmash___Projeto_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Autor,Conteudo,Titulo,Criacao")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Autor,Conteudo,Titulo,Criacao,Imagem,DescricaoFront")] Post post)
         {
             if (id != post.Id)
             {

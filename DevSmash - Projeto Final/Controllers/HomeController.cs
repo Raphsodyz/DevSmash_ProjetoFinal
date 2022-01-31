@@ -23,12 +23,17 @@ namespace DevSmash___Projeto_Final.Controllers
             PaginaInicialViewModel paginaInicialViewModel = new PaginaInicialViewModel();
 
             List<Servico> servicos = _context.Servicos.Take(3).ToList();
-            List<Post> posts = _context.Posts.Take(3).ToList();
+            List<Post> posts = _context.Posts.Take(4).ToList();
             
             paginaInicialViewModel.Servicos = _mapper.Map<List<ServicoViewModel>>(servicos);
             paginaInicialViewModel.Posts = posts;
 
             return View(paginaInicialViewModel);
+        }
+
+        public IActionResult Servicos()
+        {
+            return View(_context.Servicos.ToList());
         }
     }
 }
