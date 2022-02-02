@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevSmash___Projeto_Final.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220128012545_alteracaoPost")]
-    partial class alteracaoPost
+    [Migration("20220131223035_removerteste")]
+    partial class removerteste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,6 +68,10 @@ namespace DevSmash___Projeto_Final.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("varchar(70)")
                         .HasColumnName("email");
+
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -214,7 +218,7 @@ namespace DevSmash___Projeto_Final.Migrations
                     b.Property<string>("Imagem")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("NomeServico")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")

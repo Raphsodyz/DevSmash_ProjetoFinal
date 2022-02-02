@@ -67,6 +67,10 @@ namespace DevSmash___Projeto_Final.Migrations
                         .HasColumnType("varchar(70)")
                         .HasColumnName("email");
 
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)

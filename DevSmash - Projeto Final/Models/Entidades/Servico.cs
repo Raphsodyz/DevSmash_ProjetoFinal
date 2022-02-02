@@ -12,5 +12,6 @@ namespace DevSmash___Projeto_Final.Models.Entidades
         public string? Icone { get; set; }
         public string? Imagem { get; set; }
         public string? DescricaoFront { get; set; }
+
     }
 }

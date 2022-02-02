@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevSmash___Projeto_Final.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220127012657_images")]
-    partial class images
+    [Migration("20220131222209_recuperacao")]
+    partial class recuperacao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,6 +68,10 @@ namespace DevSmash___Projeto_Final.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("varchar(70)")
                         .HasColumnName("email");
+
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -176,6 +180,12 @@ namespace DevSmash___Projeto_Final.Migrations
                         .HasColumnType("datetime")
                         .HasColumnName("criacao");
 
+                    b.Property<string>("DescricaoFront")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Imagem")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -199,13 +209,16 @@ namespace DevSmash___Projeto_Final.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("descricao");
 
+                    b.Property<string>("DescricaoFront")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Icone")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Imagem")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("NomeServico")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
