@@ -1,4 +1,4 @@
-﻿@model DevSmash___Projeto_Final.Models.ViewModels.ClientesViewModel
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Servico>
 
 
 <section class="wrapper style1">
@@ -12,7 +12,7 @@
                             <p>Nossa equipe é totalmente qualificada e está pronta para te oferecer o melhor</p>
                         </header>
                         <br />
-                        @foreach (var servico in Model.Servicos)
+                        @foreach (var servico in Model)
                         {
                             <header>
                                 <h2>@servico.Nome</h2>
@@ -28,35 +28,7 @@
                     <section>
                         <h3>Precisa de alguma de nossas soluções? Nos envie uma mensagem!</h3>
                         <footer>
-                            <form asp-controller="Home" asp-action="Servicos">
-                                <div class="row gtr-50">
-                                    <div class="col-6 col-12-mobilep">
-                                        <input asp-for="Clientes.Nome" type="text" placeholder="Seu nome"/>
-                                        <span asp-validation-for="Clientes.Nome" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-6 col-12-mobilep">
-                                        <input asp-for="Clientes.Email" type="email" placeholder="Seu e-mail!" />
-                                        <span asp-validation-for="Clientes.Email" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-6 col-12-mobilep">
-                                        <input asp-for="Clientes.Telefone" type="tel" placeholder="Telefone" />
-                                        <span asp-validation-for="Clientes.Telefone" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-6 col-12-mobilep">
-                                        <input asp-for="Clientes.Cpf" type="number" placeholder="Seu CPF/CNPJ" />
-                                        <span asp-validation-for="Clientes.Cpf" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea asp-for="Clientes.Mensagem" placeholder="Conte-nos sobre você e o que precisa!" rows="5"></textarea>
-                                        <span asp-validation-for="Clientes.Mensagem" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-12">
-                                        <ul class="actions">
-                                            <li><input type="submit" class="button alt" value="Enviar Mensagem" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
+                           @Html.Partial("_ClientesForm");
                         </footer>
                     </section>
                 </div>

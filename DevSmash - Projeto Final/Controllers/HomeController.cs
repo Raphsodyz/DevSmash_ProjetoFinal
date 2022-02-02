@@ -30,24 +30,10 @@ namespace DevSmash___Projeto_Final.Controllers
 
             return View(paginaInicialViewModel);
         }
-
-        [HttpPost]
-        public IActionResult Servicos(Cliente cliente)
+        public IActionResult Servicos()
         {
-            ClientesViewModel clientesViewModel = new ClientesViewModel();
-
             List<Servico> servicos = _context.Servicos.ToList();
-
-            clientesViewModel.Servicos = servicos;
-            clientesViewModel.Clientes = cliente;
-
-            if(ModelState.IsValid)
-            {
-                _context.Clientes.Add(cliente);
-                _context.SaveChanges();
-            }
-
-            return View(clientesViewModel);
+            return View(servicos);
         }
     }
 }
