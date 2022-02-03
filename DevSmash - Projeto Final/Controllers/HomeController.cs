@@ -35,5 +35,17 @@ namespace DevSmash___Projeto_Final.Controllers
             List<Servico> servicos = _context.Servicos.ToList();
             return View(servicos);
         }
+
+        public IActionResult Blog()
+        {
+            List<Post> blog = _context.Posts.ToList();
+            return View(blog);
+        }
+
+        public IActionResult About()
+        {
+            List<Integrante> integrantes = _context.Integrantes.ToList();
+            return View(integrantes);
+        }
     }
 }

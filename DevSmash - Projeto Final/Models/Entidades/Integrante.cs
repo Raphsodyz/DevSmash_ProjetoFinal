@@ -10,5 +10,6 @@ namespace DevSmash___Projeto_Final.Models.Entidades
         public string Funcao { get; set; } = null!;
         public string RedeSocial { get; set; } = null!;
         public string Sobre { get; set; } = null!;
+        public string Foto { get; set; }
     }
 }

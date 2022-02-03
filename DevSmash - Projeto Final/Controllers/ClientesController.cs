@@ -57,7 +57,7 @@ namespace DevSmash___Projeto_Final.Controllers
             {
                 _context.Clientes.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(ServicosController.Index));
+                return RedirectToAction(nameof(Index));
             }
 
             return View(cliente);
