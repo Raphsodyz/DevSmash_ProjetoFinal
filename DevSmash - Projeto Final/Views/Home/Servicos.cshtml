@@ -28,7 +28,13 @@
                     <section>
                         <h3>Precisa de alguma de nossas soluções? Nos envie uma mensagem!</h3>
                         <footer>
-                           @Html.Partial("_ClientesForm");
+                            @Html.Partial("_ClientesForm")
+                            @if (TempData["Sucesso"] != null)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @TempData["Sucesso"]
+                                </div>
+                            }
                         </footer>
                     </section>
                 </div>

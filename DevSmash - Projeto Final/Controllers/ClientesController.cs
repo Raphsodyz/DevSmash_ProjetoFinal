@@ -57,7 +57,8 @@ namespace DevSmash___Projeto_Final.Controllers
             {
                 _context.Clientes.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                TempData["Sucesso"] = "Seus dados foram enviados com sucesso! Aguarde nosso contato."; 
+                return RedirectToAction("Servicos", "Home");
             }
 
             return View(cliente);
