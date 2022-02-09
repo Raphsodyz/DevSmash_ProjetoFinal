@@ -10,9 +10,11 @@ using DevSmash___Projeto_Final;
 using DevSmash___Projeto_Final.Models.Entidades;
 using AutoMapper;
 using DevSmash___Projeto_Final.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
+    [Authorize]
     public class ServicosController : Controller
     {
         private readonly SiteContext _context;
@@ -24,16 +26,14 @@ namespace DevSmash___Projeto_Final.Controllers
             _mapper = mapper;
         }
 
-        // GET: Servicos
+        
         public async Task<IActionResult> Index()
         {
             var servicos = _context.Servicos.ToList();
-            List<ServicoViewModel> servicoViewModels = _mapper.Map<List<ServicoViewModel>>(servicos);
 
-            return View(servicoViewModels);
+            return View(servicos);
         }
 
-        // GET: Servicos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -51,15 +51,11 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Servicoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Descricao,Nome,Valor,Icone,Imagem,DescricaoFront")] Servico servico)
@@ -73,7 +69,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,9 +84,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(servico);
         }
 
-        // POST: Servicoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,Nome,Valor,Icone,Imagem,DescricaoFront")] Servico servico)
@@ -124,7 +116,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(servico);
         }
 
-        // GET: Servicoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -142,7 +133,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(servico);
         }
 
-        // POST: Servicoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

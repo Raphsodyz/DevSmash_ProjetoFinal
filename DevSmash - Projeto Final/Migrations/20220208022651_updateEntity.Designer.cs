@@ -3,6 +3,7 @@ using System;
 using DevSmash___Projeto_Final;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DevSmash___Projeto_Final.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20220208022651_updateEntity")]
+    partial class updateEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,6 +100,40 @@ namespace DevSmash___Projeto_Final.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("integrantes", (string)null);
+                });
+
+            modelBuilder.Entity("DevSmash___Projeto_Final.Models.Entidades.Midia", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    b.Property<string>("Alt")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("alt")
+                        .HasDefaultValueSql("''");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(80)
+                        .HasColumnType("varchar(80)")
+                        .HasColumnName("link")
+                        .HasDefaultValueSql("''");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("nome")
+                        .HasDefaultValueSql("''");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("midias", (string)null);
                 });
 
             modelBuilder.Entity("DevSmash___Projeto_Final.Models.Entidades.Post", b =>

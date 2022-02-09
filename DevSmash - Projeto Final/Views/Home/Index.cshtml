@@ -32,15 +32,7 @@
         <div class="row">
             @foreach (var item in Model.Posts)
             {
-                <section class="col-6 col-12-narrower">
-                    <div class="box post">
-                        <a href="#" class="image left"><img src="@item.Imagem" alt="" /></a>
-                        <div class="inner">
-                            <h3>@item.Titulo</h3>
-                            <p>@item.DescricaoFront</p>
-                        </div>
-                    </div>
-                </section>
+                @Html.Partial("_Posts", item);
             }
         </div>
     </div>

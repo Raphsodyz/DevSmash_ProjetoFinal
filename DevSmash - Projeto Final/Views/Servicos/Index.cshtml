@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DevSmash___Projeto_Final.Models.ViewModels.ServicoViewModel>
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Servico>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DescricaoCompleta)
+                @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NomeServico)
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ValorServico)
+                @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IconeFront)
+                @Html.DisplayNameFor(model => model.Icone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImagemFront)
+                @Html.DisplayNameFor(model => model.Imagem)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescricaoView)
+                @Html.DisplayNameFor(model => model.DescricaoFront)
             </th>
             <th></th>
         </tr>
@@ -37,27 +37,27 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DescricaoCompleta)
+                @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NomeServico)
+                @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ValorServico)
+                @Html.DisplayFor(modelItem => item.Valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IconeFront)
+                @Html.DisplayFor(modelItem => item.Icone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagemFront)
+                @Html.DisplayFor(modelItem => item.Imagem)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DescricaoView)
+                @Html.DisplayFor(modelItem => item.DescricaoFront)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdServico">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdServico">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdServico">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

@@ -1,4 +1,11 @@
-﻿@model DevSmash___Projeto_Final.Models.ViewModels.PaginaInicialViewModel
+﻿@model DevSmash___Projeto_Final.Models.Entidades.Post
 
-
-<
+<section class="col-6 col-12-narrower">
+    <div class="box post">
+        <a asp-controller="Home" asp-action="Blog" class="image left"><img src="@Model.Imagem" alt="" /></a>
+        <div class="inner">
+            <h3>@Model.Titulo</h3>
+            <p>@Model.DescricaoFront</p>
+        </div>
+    </div>
+</section>

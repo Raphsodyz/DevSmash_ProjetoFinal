@@ -8,7 +8,7 @@ namespace DevSmash___Projeto_Final.Aplicação
     {
         public SiteMapper()
         {
-            CreateMap<Servico, ServicoViewModel>()
+            /*CreateMap<Servico, ServicoViewModel>()
                 .ForMember(
                     view => view.IdServico,
                     serv => serv.MapFrom(src => src.Id))
@@ -29,7 +29,7 @@ namespace DevSmash___Projeto_Final.Aplicação
                     serv => serv.MapFrom(src => src.Imagem))
                 .ForMember(
                     view => view.DescricaoCompleta,
-                    serv => serv.MapFrom(src => src.Descricao));
+                    serv => serv.MapFrom(src => src.Descricao));*/
         }
     }
 }

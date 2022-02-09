@@ -1978,6 +1978,8 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
+input[class="form-control"],
+input[class="form-label"],
 textarea {
     -moz-appearance: none;
     -webkit-appearance: none;

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using DevSmash___Projeto_Final.Models.Entidades;
+using DevSmash___Projeto_Final.Models.Usuario;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DevSmash___Projeto_Final
 {
-    public partial class SiteContext : DbContext
+    public partial class SiteContext : IdentityDbContext<usuarioADM>
     {
         private readonly IConfiguration _configuration;
 
@@ -19,18 +21,15 @@ namespace DevSmash___Projeto_Final
         {
         }
 
-        public virtual DbSet<Adm> Adms { get; set; } = null!;
         public virtual DbSet<Cliente> Clientes { get; set; } = null!;
         public virtual DbSet<Integrante> Integrantes { get; set; } = null!;
-        public virtual DbSet<Midia> Midias { get; set; } = null!;
         public virtual DbSet<Post> Posts { get; set; } = null!;
         public virtual DbSet<Servico> Servicos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                
+            {  
                 string connection = _configuration.GetSection("ConnectionStrings").GetSection("default").Value;
                 optionsBuilder.UseMySql(connection, ServerVersion.AutoDetect(connection));
             }
@@ -40,27 +39,6 @@ namespace DevSmash___Projeto_Final
         {
             modelBuilder.UseCollation("utf8mb4_0900_ai_ci")
                 .HasCharSet("utf8mb4");
-
-            modelBuilder.Entity<Adm>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("adm");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(70)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Id).HasColumnName("ID");
-
-                entity.Property(e => e.Nome)
-                    .HasMaxLength(50)
-                    .HasColumnName("nome");
-
-                entity.Property(e => e.Telefone)
-                    .HasMaxLength(50)
-                    .HasColumnName("telefone");
-            });
 
             modelBuilder.Entity<Cliente>(entity =>
             {
@@ -108,30 +86,6 @@ namespace DevSmash___Projeto_Final
                 entity.Property(e => e.Sobre).HasColumnName("sobre");
             });
 
-            modelBuilder.Entity<Midia>(entity =>
-            {
-                entity.ToTable("midias");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.Alt)
-                    .HasMaxLength(50)
-                    .HasColumnName("alt")
-                    .HasDefaultValueSql("''");
-
-                entity.Property(e => e.Link)
-                    .HasMaxLength(80)
-                    .HasColumnName("link")
-                    .HasDefaultValueSql("''");
-
-                entity.Property(e => e.Nome)
-                    .HasMaxLength(50)
-                    .HasColumnName("nome")
-                    .HasDefaultValueSql("''");
-            });
-
             modelBuilder.Entity<Post>(entity =>
             {
                 entity.ToTable("posts");
@@ -170,8 +124,11 @@ namespace DevSmash___Projeto_Final
             });
 
             OnModelCreatingPartial(modelBuilder);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
     }
 }

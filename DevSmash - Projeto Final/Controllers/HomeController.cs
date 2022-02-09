@@ -24,8 +24,8 @@ namespace DevSmash___Projeto_Final.Controllers
 
             List<Servico> servicos = _context.Servicos.Take(3).ToList();
             List<Post> posts = _context.Posts.Take(4).ToList();
-            
-            paginaInicialViewModel.Servicos = _mapper.Map<List<ServicoViewModel>>(servicos);
+
+            paginaInicialViewModel.Servicos = servicos;
             paginaInicialViewModel.Posts = posts;
 
             return View(paginaInicialViewModel);

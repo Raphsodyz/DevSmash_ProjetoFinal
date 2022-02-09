@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
 using DevSmash___Projeto_Final.Models.Entidades;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private readonly SiteContext _context;
@@ -21,13 +23,10 @@ namespace DevSmash___Projeto_Final.Controllers
             _context = context;
         }
 
-        // GET: Posts
         public async Task<IActionResult> Index()
         {
             return View(await _context.Posts.ToListAsync());
         }
-
-        // GET: Posts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,15 +44,11 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(post);
         }
 
-        // GET: Posts/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Posts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Autor,Conteudo,Titulo,Criacao,Imagem,DescricaoFront")] Post post)
@@ -67,7 +62,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(post);
         }
 
-        // GET: Posts/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,9 +77,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(post);
         }
 
-        // POST: Posts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Autor,Conteudo,Titulo,Criacao,Imagem,DescricaoFront")] Post post)
@@ -118,7 +109,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(post);
         }
 
-        // GET: Posts/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +126,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(post);
         }
 
-        // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
 using DevSmash___Projeto_Final.Models.Entidades;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
+    
     public class ClientesController : Controller
     {
         private readonly SiteContext _context;
@@ -20,13 +22,13 @@ namespace DevSmash___Projeto_Final.Controllers
             _context = context;
         }
 
-        // GET: Clientes
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Clientes.ToListAsync());
         }
 
-        // GET: Clientes/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,7 +46,7 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // GET: Clientes/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,9 +66,7 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nome,Email,Telefone,Cpf,Mensagem")] Cliente cliente)
@@ -80,7 +80,7 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // GET: Clientes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,11 +96,9 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Nome,Email,Telefone,Cpf,Mensagem")] Cliente cliente)
         {
             if (id != cliente.Id)
@@ -131,7 +129,7 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // GET: Clientes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,9 +147,9 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
@@ -160,6 +158,7 @@ namespace DevSmash___Projeto_Final.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         private bool ClienteExists(int id)
         {
             return _context.Clientes.Any(e => e.Id == id);
