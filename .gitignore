@@ -15,7 +15,8 @@
 
 
 appsettings.json
-
+.gitignore
+.gitattributes
 
 # Mono auto generated files
 mono_crash.*

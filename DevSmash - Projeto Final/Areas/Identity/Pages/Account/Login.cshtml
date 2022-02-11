@@ -5,6 +5,11 @@
     ViewData["Title"] = "Entrar";
 }
 
+@if (User.Identity.IsAuthenticated)
+{
+    RedirectToPage("AdmPanel/Index");
+}
+
 <body class="is-preload" style="background: #f7f7f7 url(~/images/bg01.png);">
     <div id="page-wrapper">
         <section class="wrapper style1">
@@ -18,36 +23,33 @@
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="col-6 col-12-mobilep">
                                     <label asp-for="Input.Email" class="form-label"></label>
-                                    <input asp-for="Input.Email" name="E-mail" class="form-control" autocomplete="username" aria-required="true" />
+                                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
                                 <div class="col-6 col-12-mobilep">
-                                    <label asp-for="Input.Password" class="form-label"></label>
-                                    <input asp-for="Input.Password" name="Senha" class="form-control" autocomplete="current-password" aria-required="true" />
+                                    <label asp-for="Input.Password" class="form-label">Senha</label>
+                                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
                                 <div>
                                     <div class="checkbox">
                                         <label asp-for="Input.RememberMe" class="form-label">
                                             <input class="form-check-input" asp-for="Input.RememberMe" />
-                                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                            Lembrar?
                                         </label>
                                     </div>
                                 </div>
                                 <div>
-                                    <button id="login-submit" type="submit" class="button alt">Entrar</button>
+                                    <button asp-controller="AdmPanel" asp-action="Index" id="login-submit" type="submit" class="button alt">Entrar</button>
                                 </div>
-                                <div>
+                                @*<div>
                                     <p>
-                                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                                     </p>
                                     <p>
-                                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                    <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                                     </p>
-                                    <p>
-                                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                                    </p>
-                                </div>
+                                    </div>*@
                             </form>
                         </section>
                     </article>

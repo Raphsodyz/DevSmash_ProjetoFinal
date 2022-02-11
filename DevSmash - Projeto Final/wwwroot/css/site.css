@@ -2104,7 +2104,7 @@ label {
         text-rendering: auto;
         line-height: 1;
         text-transform: none !important;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Brands', 'Font Awesome 5 Free';
         font-weight: 400;
     }
 
@@ -2121,7 +2121,7 @@ label {
     }
 
     .icon.brands:before {
-        font-family: 'Font Awesome 5 Brands';
+        font-family: 'Font Awesome 5 Brands', 'Font Awesome 5 Free';
     }
 
     .icon.major {

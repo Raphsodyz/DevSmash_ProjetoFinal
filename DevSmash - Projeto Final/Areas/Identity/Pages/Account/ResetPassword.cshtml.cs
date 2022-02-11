@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.WebUtilities;
 
 namespace DevSmash___Projeto_Final.Areas.Identity.Pages.Account
 {
+    [Authorize]
     public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<usuarioADM> _userManager;
