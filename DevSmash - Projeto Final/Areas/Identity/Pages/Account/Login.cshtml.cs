@@ -97,7 +97,11 @@ namespace DevSmash___Projeto_Final.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, "Dados incorretos.");
                     return Page();
                 }
+                
             }
+
+            
+
             return Page();
         }
     }

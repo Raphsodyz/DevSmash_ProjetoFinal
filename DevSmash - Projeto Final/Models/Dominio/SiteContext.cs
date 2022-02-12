@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DevSmash___Projeto_Final.Models.Entidades;
 using DevSmash___Projeto_Final.Models.Usuario;
+using DevSmash___Projeto_Final.Models.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -25,6 +26,7 @@ namespace DevSmash___Projeto_Final
         public virtual DbSet<Integrante> Integrantes { get; set; } = null!;
         public virtual DbSet<Post> Posts { get; set; } = null!;
         public virtual DbSet<Servico> Servicos { get; set; } = null!;
+        public virtual DbSet<AdmPanelViewModel> AdmPanelViewModels { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

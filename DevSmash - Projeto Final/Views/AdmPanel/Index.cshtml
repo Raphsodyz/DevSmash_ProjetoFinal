@@ -1,16 +1,26 @@
-﻿
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.ViewModels.AdmPanelViewModel>;
+
 <body class="is-preload">
     <div id="page-wrapper">
         <section class="wrapper style1">
             <div class="container">
-                <div class="card" style="width: 18rem; display:inline-block;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div class="row gtr-200">
+                    @foreach (var panel in Model)
+                    {
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <a asp-controller="@panel.ControllerNome" asp-action="Index"><i class="@panel.ImagemServico"></i></a>
+                                <p class="card-text">@panel.NomePanel</p>
+                            </div>
+                        </section>
+                    }
                 </div>
             </div>
         </section>
     </div>
 </body>
+
+
+
+
 

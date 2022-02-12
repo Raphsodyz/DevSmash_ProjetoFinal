@@ -5,10 +5,7 @@
     ViewData["Title"] = "Entrar";
 }
 
-@if (User.Identity.IsAuthenticated)
-{
-    RedirectToPage("AdmPanel/Index");
-}
+
 
 <body class="is-preload" style="background: #f7f7f7 url(~/images/bg01.png);">
     <div id="page-wrapper">
@@ -40,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <button asp-controller="AdmPanel" asp-action="Index" id="login-submit" type="submit" class="button alt">Entrar</button>
+                                    <button id="login-submit" type="submit" class="button alt">Entrar</button>
                                 </div>
                                 @*<div>
                                     <p>
