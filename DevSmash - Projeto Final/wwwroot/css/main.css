@@ -104,13 +104,13 @@ a {
     -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-    color: #37c0fb;
+    color: #046619;
     text-decoration: none;
     border-bottom: dotted 1px;
 }
 
     a:hover {
-        color: #37c0fb;
+        color: #046619;
         border-bottom-color: transparent;
     }
 
@@ -2006,16 +2006,20 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-    input[type="text"]:focus,
-    input[type="password"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-        border-color: #37c0fb;
-    }
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #046619;
+}
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="tel"],
+input[type="number"]{
     line-height: 1em;
 }
 
@@ -2380,7 +2384,7 @@ button,
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
     background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
     background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-    background-color: #37c0fb;
+    background-color: #046619;
     border-radius: 5px;
     border: 0;
     color: #fff;
@@ -2691,7 +2695,7 @@ button,
     }
 
     .wrapper.style3 {
-        background-color: #37c0fb;
+        background-color: #046619;
         background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
         background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
         background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
@@ -2705,7 +2709,7 @@ button,
         }
 
             .wrapper.style3 .button:hover {
-                color: #37c0fb !important;
+                color: #046619 !important;
             }
 
 #cta {
@@ -2734,7 +2738,7 @@ button,
     }
 
         #footer a:hover {
-            color: #37c0fb;
+            color: #046619;
             border-bottom-color: transparent;
         }
 
@@ -2973,7 +2977,7 @@ button,
         background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
         height: 44px;
         line-height: 44px;
-        box-shadow: 0 4px 0 0 #37c0fb;
+        box-shadow: 0 4px 0 0 #046619;
     }
 
         #titleBar .title {

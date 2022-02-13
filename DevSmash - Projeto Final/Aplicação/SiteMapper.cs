@@ -8,28 +8,25 @@ namespace DevSmash___Projeto_Final.Aplicação
     {
         public SiteMapper()
         {
-            /*CreateMap<Servico, ServicoViewModel>()
+            CreateMap<Cliente, ClientesViewModel>()
                 .ForMember(
-                    view => view.IdServico,
-                    serv => serv.MapFrom(src => src.Id))
+                    view => view.FormId,
+                    client => client.MapFrom(src => src.Id))
                 .ForMember(
-                    view => view.NomeServico,
-                    serv => serv.MapFrom(src => src.Nome))
+                    view => view.FormNome,
+                    client => client.MapFrom(src => src.Nome))
                 .ForMember(
-                    view => view.ValorServico,
-                    serv => serv.MapFrom(src => src.Valor))
+                    view => view.FormEmail,
+                    client => client.MapFrom(src => src.Email))
                 .ForMember(
-                    view => view.IconeFront,
-                    serv => serv.MapFrom(src => src.Icone))
+                    view => view.FormTelefone,
+                    client => client.MapFrom(src => src.Telefone))
                 .ForMember(
-                    view => view.DescricaoView,
-                    serv => serv.MapFrom(src => src.DescricaoFront))
+                    view => view.FormCpf,
+                    client => client.MapFrom(src => src.Cpf))
                 .ForMember(
-                    view => view.ImagemFront,
-                    serv => serv.MapFrom(src => src.Imagem))
-                .ForMember(
-                    view => view.DescricaoCompleta,
-                    serv => serv.MapFrom(src => src.Descricao));*/
+                    view => view.FormMensagem,
+                    client => client.MapFrom(src => src.Mensagem));
         }
     }
 }

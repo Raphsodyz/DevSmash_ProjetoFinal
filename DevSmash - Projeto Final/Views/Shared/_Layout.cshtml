@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" , user-scalable=no />
     <title>@ViewData["Title"] - DevSmash</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 </head>
 <body class="is-preload">
     <div id="page-wrapper">
@@ -13,16 +13,16 @@
             <nav id="nav">
                 <ul>
                     <li class="current">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Cronos</a>
+                        <a asp-controller="Home" asp-action="Index">Cronos</a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Blog">Blog</a>
+                        <a asp-controller="Home" asp-action="Blog">Blog</a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Servicos">Servicos</a>
+                        <a asp-controller="Home" asp-action="Servicos">Servicos</a>
                     </li>
                     <li>
-                        <a asp-area="" asp-controller="Home" asp-action="About">Quem Somos</a>
+                        <a asp-controller="Home" asp-action="About">Quem Somos</a>
                     </li>
                 </ul>
             </nav>
@@ -50,14 +50,14 @@
             </div>
         </footer>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.dropotron.min.js" asp-append-version="true"></script>
+    <script src="~/js/browser.min.js" asp-append-version="true"></script>
+    <script src="~/js/breakpoints.min.js" asp-append-version="true"></script>
+    <script src="~/js/util.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js~/js/breakpoints.min.js" asp-append-version="true"></script>
-    <script src="~/js~/js/browser.min.js" asp-append-version="true"></script>
-    <script src="~/js~/js/jquery.dropotron.min.js" asp-append-version="true"></script>
-    <script src="~/js~/js/main.js" asp-append-version="true"></script>
-    <script src="~/js~/js/util.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

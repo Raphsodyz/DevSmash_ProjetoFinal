@@ -1,9 +1,9 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/vendor';
-@import 'libs/breakpoints';
-@import 'libs/html-grid';
+@import "~/sass/libs/_vars.scss";
+@import "~/sass/libs/_functions.scss";
+@import "~/sass/libs/_mixins.scss";
+@import "~/sass/libs/_vendor.scss";
+@import "~/sass/libs/_breakpoints.scss";
+@import "~/sass/libs/_html-grid.scss";
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 
