@@ -47,6 +47,36 @@ table {
     border-spacing: 0;
 }
 
+.table-view {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+#thead-view {
+    cursor: default;
+    background-color: #333;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+    background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+    padding: 0;
+}
+
+.table-head {
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.ativar {
+    white-space: normal;
+    overflow: clip;
+    text-overflow: clip;
+    max-width: auto;
+}
+
 body {
     -webkit-text-size-adjust: none;
 }
@@ -79,6 +109,7 @@ html {
 body {
     background: #f7f7f7 url("images/bg01.png");
 }
+
 
     body.is-preload *, body.is-preload *:before, body.is-preload *:after {
         -moz-animation: none !important;
@@ -2728,9 +2759,9 @@ button,
         margin-left: 1em;
     }
 
-#footer {
-    padding: 4em 0 8em 0;
-}
+    #footer {
+        padding: 4em 0 8em 0;
+    }
 
     #footer a {
         color: inherit;
