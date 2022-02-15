@@ -1,19 +1,27 @@
-﻿<form action="https://localhost:7150/Clientes/AdicionarCliente" method="post">
+﻿@model DevSmash___Projeto_Final.Models.ViewModels.FaleConoscoViewModel
+
+<form asp-action="AdicionarCliente" asp-controller="Clientes">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="row gtr-50">
         <div class="col-6 col-12-mobilep">
-            <input name="Nome" id="Nome" type="text" placeholder="Seu nome" />
+            <input asp-for="FormNome" class="control-label" placeholder="Seu nome" />
+            <span asp-validation-for="FormNome" class="text-danger"></span>
         </div>
         <div class="col-6 col-12-mobilep">
-            <input name="Email" id="Email" type="email" placeholder="Seu e-mail!" />
+            <input asp-for="FormEmail" class="control-label" placeholder="Seu e-mail!" />
+            <span asp-validation-for="FormEmail" class="text-danger"></span>
         </div>
         <div class="col-6 col-12-mobilep">
-            <input name="Telefone" id="Telefone" type="tel" placeholder="Telefone" />
+            <input asp-for="FormTelefone" class="control-label" placeholder="Telefone" />
+            <span asp-validation-for="FormTelefone" class="text-danger"></span>
         </div>
         <div class="col-6 col-12-mobilep">
-            <input name="Cpf" id="Cpf" type="number" placeholder="Seu CPF/CNPJ" />
+            <input asp-for="FormCpf" class="control-label" placeholder="Seu CPF/CNPJ" />
+            <span asp-validation-for="FormCpf" class="text-danger"></span>
         </div>
         <div class="col-12">
-            <textarea name="Mensagem" id="Mensagem" placeholder="Conte-nos sobre você e o que precisa!" rows="5"></textarea>
+            <textarea asp-for="FormMensagem" class="control-label" placeholder="Conte-nos sobre você e o que precisa!" rows="5"></textarea>
+            <span asp-validation-for="FormMensagem" class="text-danger"></span>
         </div>
         <div class="col-12">
             <ul class="actions">

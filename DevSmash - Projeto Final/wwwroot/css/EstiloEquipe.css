@@ -1,0 +1,74 @@
+﻿article {
+    background-image: linear-gradient(WhiteSmoke, Lavender);
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    background: linear-gradient(to right,#006400 25%, #00FF00 75%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.p1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.p2 {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sobre {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px;
+    padding: 20px;
+}
+
+
+h2 {
+    font-size: 35px;
+    font-weight: bold;
+
+}
+
+#body2 {
+    line-height: 1;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    marker-side: initial;
+}
+
+
+
+.image.featured img {
+    display: block;
+    width: 20%;
+    height: 20%;
+    border-radius: 500%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: double;
+    border-color: blueviolet;
+}
+
+#nav > ul > li.current:before {
+    -moz-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    width: 0.75em;
+    height: 0.75em;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -0.5em;
+    left: 435%;
+    margin-left: -0.375em;
+    background-color: #046619;
+    background-image: url("images/bg01.png");
+}

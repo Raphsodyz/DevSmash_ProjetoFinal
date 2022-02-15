@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Servico>
+﻿@model DevSmash___Projeto_Final.Models.ViewModels.ClientesViewModel
+<link rel="stylesheet" href="~/css/EstiloServicos.css" asp-append-version="true" />
 
 
 <section class="wrapper style1">
@@ -8,14 +9,16 @@
                 <div id="content">
                     <article>
                         <header>
-                            <h2>Conheça nossos Serviços</h2>
+                            <h1>Conheça nossos Serviços</h1>
+                            <hr />
+                            <br />
                             <p>Nossa equipe é totalmente qualificada e está pronta para te oferecer o melhor</p>
                         </header>
                         <br />
-                        @foreach (var servico in Model)
+                        @foreach (var servico in Model.Servicos)
                         {
                             <header>
-                                <h2>@servico.Nome</h2>
+                                <h2 class="servico">@servico.Nome</h2>
                             </header>
                             <span class="image featured"><img src="@servico.Imagem" alt="" /></span>
                             <p>@servico.Descricao</p>
@@ -26,9 +29,12 @@
             <div class="col-4 col-12-narrower">
                 <div id="sidebar">
                     <section>
-                        <h3>Precisa de alguma de nossas soluções? Nos envie uma mensagem!</h3>
+                        <h3>
+                            Precisa de alguma de nossas soluções? <br />
+                            Nos envie uma mensagem!
+                        </h3>
                         <footer>
-                            @Html.Partial("_ClientesForm")
+                            @Html.Partial("_ClientesForm", Model.FalesConosco)
                             @if (TempData["Sucesso"] != null)
                             {
                                 <div class="alert alert-success" role="alert">
@@ -41,4 +47,4 @@
             </div>
         </div>
     </div>
-</section>      
+</section>     

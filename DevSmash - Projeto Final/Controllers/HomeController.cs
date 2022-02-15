@@ -32,8 +32,11 @@ namespace DevSmash___Projeto_Final.Controllers
         }
         public IActionResult Servicos()
         {
-            List<Servico> servicos = _context.Servicos.ToList();
-            return View(servicos);
+            var cliente = new ClientesViewModel();
+            var servicos = _context.Servicos.ToList();
+            cliente.Servicos = servicos;
+
+            return View(cliente);
         }
 
         public IActionResult Blog()

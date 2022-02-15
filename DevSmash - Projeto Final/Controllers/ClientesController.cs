@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using DevSmash___Projeto_Final;
 using DevSmash___Projeto_Final.Models.Entidades;
 using Microsoft.AspNetCore.Authorization;
+using DevSmash___Projeto_Final.Models.ViewModels;
+using AutoMapper;
 
 namespace DevSmash___Projeto_Final.Controllers
 {
@@ -16,10 +18,12 @@ namespace DevSmash___Projeto_Final.Controllers
     public class ClientesController : Controller
     {
         private readonly SiteContext _context;
+        private readonly IMapper _mapper;
 
-        public ClientesController(SiteContext context)
+        public ClientesController(SiteContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [Authorize]
@@ -53,17 +57,21 @@ namespace DevSmash___Projeto_Final.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdicionarCliente(Cliente cliente)
+        public async Task<IActionResult> AdicionarCliente(FaleConoscoViewModel faleconoscoviewmodel)
         {
+
+
             if (ModelState.IsValid)
             {
+                var cliente = _mapper.Map<Cliente>(faleconoscoviewmodel);
+
                 _context.Clientes.Add(cliente);
                 await _context.SaveChangesAsync();
                 TempData["Sucesso"] = "Seus dados foram enviados com sucesso! Aguarde nosso contato."; 
                 return RedirectToAction("Servicos", "Home");
             }
 
-            return View(cliente);
+            return View(faleconoscoviewmodel);
         }
 
         [Authorize]

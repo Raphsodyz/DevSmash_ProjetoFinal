@@ -1,26 +1,41 @@
 ﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Integrante>
+<link rel="stylesheet" href="~/css/EstiloEquipe.css" asp-append-version="true" />
+
+
 
 <body class="is-preload">
     <div id="page-wrapper">
-        <section class="wrapper style1">
+        <section class="wrapper style2">
             <div class="container">
                 <div id="content">
-                    <article>
+                    <article id="body2">
                         <header>
-                            <h2>Conheça nosso time</h2>
+                            <h1>Conheça nosso time</h1>
+                            <hr />
+                            <br />
+                            <br />
+                            <p class="p1">
+                                Um time diferenciado e capacitado para dar a sua empresa a solução mais
+                                criativa e performática do mercado.
+                            </p>
                         </header>
                         <br />
                         @foreach (var integrante in Model)
                         {
-                            <header>
-                                <h2>@integrante.Nome</h2>
-                                <p>@integrante.Funcao</p>
-                            </header>
-                            <span class="image featured"><img src="@integrante.Foto" alt="Integrante" /></span>
+                            <p>
 
-                            <h3>@integrante.RedeSocial</h3>
+                                <h2 class="stylenome">@integrante.Nome</h2>
+                            <p class="p2">@integrante.Funcao</p>
 
-                            <p>@integrante.Sobre</p>
+                            </p>
+
+                            <span class="image featured">
+                                <img src="@integrante.Foto"
+                                 alt="Integrante" />
+                            </span>
+                            <h2><a href="@integrante.RedeSocial" class="icon brands fa-linkedin-in" target="_blank"></a></h2>
+                            <p class="sobre">@integrante.Sobre</p>
+                            <hr />
 
                         }
                     </article>
@@ -29,4 +44,5 @@
         </section>
     </div>
 </body>
+
 

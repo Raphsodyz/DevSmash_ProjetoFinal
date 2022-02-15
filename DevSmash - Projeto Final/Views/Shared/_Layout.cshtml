@@ -24,6 +24,12 @@
                     <li>
                         <a asp-controller="Home" asp-action="About">Quem Somos</a>
                     </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-controller="AdmPanel" asp-action="Index">Administrador</a>
+                        </li>
+                    }
                 </ul>
             </nav>
         </header>

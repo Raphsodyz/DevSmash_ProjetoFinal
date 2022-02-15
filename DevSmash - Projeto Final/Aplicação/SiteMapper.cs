@@ -8,7 +8,7 @@ namespace DevSmash___Projeto_Final.Aplicação
     {
         public SiteMapper()
         {
-            CreateMap<Cliente, ClientesViewModel>()
+            CreateMap<Cliente, FaleConoscoViewModel>()
                 .ForMember(
                     view => view.FormId,
                     client => client.MapFrom(src => src.Id))
@@ -27,6 +27,24 @@ namespace DevSmash___Projeto_Final.Aplicação
                 .ForMember(
                     view => view.FormMensagem,
                     client => client.MapFrom(src => src.Mensagem));
+
+            CreateMap<FaleConoscoViewModel, Cliente>()
+                .ForMember(
+                    view => view.Nome,
+                    client => client.MapFrom(src => src.FormNome))
+                .ForMember(
+                    view => view.Email,
+                    client => client.MapFrom(src => src.FormEmail))
+                .ForMember(
+                    view => view.Telefone,
+                    client => client.MapFrom(src => src.FormTelefone))
+                .ForMember(
+                    view => view.Cpf,
+                    client => client.MapFrom(src => src.FormCpf))
+                .ForMember(
+                    view => view.Mensagem,
+                    client => client.MapFrom(src => src.FormMensagem));
         }
+
     }
 }

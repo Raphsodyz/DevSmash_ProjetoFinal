@@ -1,0 +1,44 @@
+﻿.servico {
+    text-align:center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    background: linear-gradient(to right,#006400 25%, #00FF00 75%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.image.featured img {
+    display: block;
+    width: 50%;
+    height: 500%;
+    border-radius: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: double;
+    border-color: blueviolet;
+}
+
+#nav > ul > li.current:before {
+    -moz-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    width: 0.75em;
+    height: 0.75em;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -0.5em;
+    left: 285%;
+    margin-left: -0.375em;
+    background-color: #046619;
+    background-image: url("images/bg01.png");
+}

@@ -51,7 +51,7 @@ namespace DevSmash___Projeto_Final.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Funcao,RedeSocial,Sobre")] Integrante integrante)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Funcao,RedeSocial,Sobre,Foto")] Integrante integrante)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace DevSmash___Projeto_Final.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Funcao,RedeSocial,Sobre")] Integrante integrante)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Funcao,RedeSocial,Sobre,Foto")] Integrante integrante)
         {
             if (id != integrante.Id)
             {
