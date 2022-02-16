@@ -1,6 +1,11 @@
 ﻿@model DevSmash___Projeto_Final.Models.ViewModels.ClientesViewModel
 <link rel="stylesheet" href="~/css/EstiloServicos.css" asp-append-version="true" />
 
+@section Scripts{
+<script>
+    $('document').ready(AlterarMenu(3));
+</script>
+}
 
 <section class="wrapper style1">
     <div class="container">
@@ -8,6 +13,12 @@
             <div class="col-8 col-12-narrower">
                 <div id="content">
                     <article>
+                        @if (TempData["Sucesso"] != null)
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @TempData["Sucesso"]
+                            </div>
+                        }
                         <header>
                             <h1>Conheça nossos Serviços</h1>
                             <hr />
@@ -34,13 +45,7 @@
                             Nos envie uma mensagem!
                         </h3>
                         <footer>
-                            @Html.Partial("_ClientesForm", Model.FalesConosco)
-                            @if (TempData["Sucesso"] != null)
-                            {
-                                <div class="alert alert-success" role="alert">
-                                    @TempData["Sucesso"]
-                                </div>
-                            }
+                            <a asp-action="FaleConosco" asp-controller="Home"><button class="button alt">Clique aqui para mais informações</button></a>
                         </footer>
                     </section>
                 </div>

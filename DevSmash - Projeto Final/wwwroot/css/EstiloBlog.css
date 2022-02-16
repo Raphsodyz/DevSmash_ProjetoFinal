@@ -16,7 +16,7 @@ h2 {
     -webkit-text-fill-color: transparent;
 }
 
-#nav > ul > li.current:before {
+/*#nav > ul > li.current:before {
     -moz-transform: rotateZ(45deg);
     -webkit-transform: rotateZ(45deg);
     -ms-transform: rotateZ(45deg);
@@ -31,4 +31,4 @@ h2 {
     margin-left: -0.375em;
     background-color: #046619;
     background-image: url("images/bg01.png");
-}
+}*/

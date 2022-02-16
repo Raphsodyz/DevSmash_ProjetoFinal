@@ -39,6 +39,27 @@ namespace DevSmash___Projeto_Final.Controllers
             return View(cliente);
         }
 
+        public IActionResult FaleConosco()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FaleConosco(FaleConoscoViewModel faleconoscoviewmodel)
+        {
+            if (ModelState.IsValid)
+            {
+                var cliente = _mapper.Map<Cliente>(faleconoscoviewmodel);
+
+                _context.Clientes.Add(cliente);
+                await _context.SaveChangesAsync();
+                TempData["Sucesso"] = "Seus dados foram enviados com sucesso! Aguarde nosso contato.";
+                return RedirectToAction("Servicos", "Home");
+            }
+
+            return View(faleconoscoviewmodel);
+        }
+
         public IActionResult Blog()
         {
             List<Post> blog = _context.Posts.ToList();
@@ -50,5 +71,7 @@ namespace DevSmash___Projeto_Final.Controllers
             List<Integrante> integrantes = _context.Integrantes.ToList();
             return View(integrantes);
         }
+
+
     }
 }

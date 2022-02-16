@@ -56,24 +56,6 @@ namespace DevSmash___Projeto_Final.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AdicionarCliente(FaleConoscoViewModel faleconoscoviewmodel)
-        {
-
-
-            if (ModelState.IsValid)
-            {
-                var cliente = _mapper.Map<Cliente>(faleconoscoviewmodel);
-
-                _context.Clientes.Add(cliente);
-                await _context.SaveChangesAsync();
-                TempData["Sucesso"] = "Seus dados foram enviados com sucesso! Aguarde nosso contato."; 
-                return RedirectToAction("Servicos", "Home");
-            }
-
-            return View(faleconoscoviewmodel);
-        }
-
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
