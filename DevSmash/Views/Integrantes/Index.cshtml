@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Integrante>
+
+@{
+    ViewData["Title"] = "Início";
+}
+@section Scripts{
+<script>
+    $('document').ready(AlterarMenu(5));
+</script>
+}
+<br />
+<h3>Integrantes</h3>
+<table class="table table-bordered">
+    <thead id="thead-view">
+        <tr>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Funcao)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.RedeSocial)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Sobre)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th class="table-head">
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Funcao)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.RedeSocial)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Sobre)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Foto)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="icon solid fa-edit"><span class="label">Editar</span></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="icon solid fa-info-circle"><span class="label">Detalhes</span></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="icon solid fa-minus-circle"><span class="label">Deletar</span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create" style="font-weight:bold">Adicionar novo Integrante</a>

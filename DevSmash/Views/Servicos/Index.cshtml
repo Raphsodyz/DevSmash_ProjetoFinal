@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DevSmash___Projeto_Final.Models.Entidades.Servico>
+
+@{
+    ViewData["Title"] = "Início";
+}
+@section Scripts{
+<script>
+    $('document').ready(AlterarMenu(5));
+</script>
+}
+<br />
+<h3>Serviços</h3>
+<table class="table table-bordered">
+    <thead id="thead-view">
+        <tr>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Icone)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.Imagem)
+            </th>
+            <th class="table-head">
+                @Html.DisplayNameFor(model => model.DescricaoFront)
+            </th>
+            <th class="table-head">
+                Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Icone)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.Imagem)
+                </td>
+                <td class="table-view" onclick="MostrarLinha()">
+                    @Html.DisplayFor(modelItem => item.DescricaoFront)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="icon solid fa-edit"><span class="label">Editar</span></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="icon solid fa-info-circle"><span class="label">Detalhes</span></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="icon solid fa-minus-circle"><span class="label">Deletar</span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" style="font-weight:bold">Adicionar novo serviço</a>
+</p>
