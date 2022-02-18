@@ -1,6 +1,6 @@
 # DevSmash_ProjetoFinal
 
-Projeto solicitado pela GamaAcademy em parceria com a Ânima - Reskilling, o esboço é:https://github.com/Raphsodyz/DevSmash_ProjetoFinal
+Projeto solicitado pela GamaAcademy em parceria com a Ânima - Reskilling, o esboço é(enquanto o banco de dados está online haha): https://devsmash.herokuapp.com/
 
 A Agência fictícia Cronos, que presta serviços de tecnologia (desenvolvimento,
 marketing e UX design), contratou você para o desenvolvimento do site institucional com
